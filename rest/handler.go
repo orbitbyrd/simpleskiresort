@@ -2,14 +2,14 @@ package rest
 
 import (
 	"net/http"
-	"skiresorts/usecase"
+	"skiresorts/business"
 )
 
 type handler struct {
-	hs usecase.IHillsService
+	hs business.IHillsService
 }
 
-func New(hs usecase.IHillsService) *handler {
+func New(hs business.IHillsService) *handler {
 	return &handler{
 		hs: hs,
 	}

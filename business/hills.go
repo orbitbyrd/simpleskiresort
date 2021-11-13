@@ -1,29 +1,29 @@
-package usecase
+package business
 
 import (
-	"skiresorts/models"
-	"skiresorts/storage"
+	"skiresorts/domain"
+	"skiresorts/persistence"
 )
 
 type IHillsService interface {
-	GetHill(id int) (*models.Hill, error)
-	UpdateHill(id int, hill *models.Hill) error
+	GetHill(id int) (*domain.Hill, error)
+	UpdateHill(id int, hill *domain.Hill) error
 }
 
 type hillsService struct {
-	repo storage.IHillRepo
+	repo persistence.IHillRepo
 }
 
-func NewHillService(repo storage.IHillRepo) *hillsService {
+func NewHillService(repo persistence.IHillRepo) *hillsService {
 	return &hillsService{
 		repo: repo,
 	}
 }
 
-func (hs *hillsService) GetHill(id int) (*models.Hill, error) {
+func (hs *hillsService) GetHill(id int) (*domain.Hill, error) {
 	return hs.repo.GetHill(id)
 }
 
-func (hs *hillsService) UpdateHill(id int, hill *models.Hill) error {
+func (hs *hillsService) UpdateHill(id int, hill *domain.Hill) error {
 	return hs.repo.UpdateHill(id, hill)
 }

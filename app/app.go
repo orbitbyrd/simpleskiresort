@@ -3,9 +3,9 @@ package app
 import (
 	"net/http"
 	"regexp"
+	"skiresorts/business"
+	"skiresorts/persistence"
 	"skiresorts/rest"
-	"skiresorts/storage"
-	"skiresorts/usecase"
 )
 
 type Mode int
@@ -16,14 +16,14 @@ const (
 )
 
 func Run(mode Mode) {
-	var repo storage.IHillRepo
+	var repo persistence.IHillRepo
 	switch mode {
 	case InMem:
-		repo = storage.NewInMemRepo()
+		repo = persistence.NewInMemRepo()
 	case FromPostgres:
-		repo = storage.NewPostgresRepo()
+		repo = persistence.NewPostgresRepo()
 	}
-	hs := usecase.NewHillService(repo)
+	hs := business.NewHillService(repo)
 
 	restHandler := rest.New(hs)
 

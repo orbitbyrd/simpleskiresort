@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"skiresorts/models"
+	"skiresorts/domain"
 	"strconv"
 	"strings"
 )
@@ -15,7 +15,7 @@ type hillDTO struct {
 	Height float64 `json:"height"`
 }
 
-func toHillDTO(model *models.Hill, height float64) *hillDTO {
+func toHillDTO(model *domain.Hill, height float64) *hillDTO {
 	return &hillDTO{
 		Length: model.Length,
 		Slope:  model.Slope,
@@ -45,7 +45,7 @@ func (h *handler) HandleHills(w http.ResponseWriter, r *http.Request) {
 	case "POST":
 
 	case "PATCH":
-		var hill models.Hill
+		var hill domain.Hill
 		err := json.NewDecoder(r.Body).Decode(&hill)
 		if err != nil {
 			fmt.Printf("Cannot Decode : %d\n", id)
@@ -59,7 +59,7 @@ func (h *handler) HandleHills(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func (h *handler) updateHill(id int, hill *models.Hill) *Response {
+func (h *handler) updateHill(id int, hill *domain.Hill) *Response {
 	err := h.hs.UpdateHill(id, hill)
 	if err != nil {
 		return &Response{Status: http.StatusBadRequest}

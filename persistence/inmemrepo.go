@@ -1,16 +1,16 @@
-package storage
+package persistence
 
 import (
 	"fmt"
-	"skiresorts/models"
+	"skiresorts/domain"
 )
 
 type inMemDB struct {
-	Hills map[int]*models.Hill
+	Hills map[int]*domain.Hill
 }
 
 func newInMemDB() *inMemDB {
-	hills := map[int]*models.Hill{
+	hills := map[int]*domain.Hill{
 		1: {
 			Length: 99.9,
 			Slope:  0.21,
@@ -31,14 +31,14 @@ func NewInMemRepo() *inMemRepo {
 	}
 }
 
-func (imr *inMemRepo) GetHill(id int) (*models.Hill, error) {
+func (imr *inMemRepo) GetHill(id int) (*domain.Hill, error) {
 	if h, ok := imr.db.Hills[id]; ok {
 		return h, nil
 	}
 	return nil, fmt.Errorf("Hill with id %d is not found", id)
 }
 
-func (imr *inMemRepo) UpdateHill(id int, hill *models.Hill) error {
+func (imr *inMemRepo) UpdateHill(id int, hill *domain.Hill) error {
 	if _, ok := imr.db.Hills[id]; ok {
 		imr.db.Hills[id] = hill
 		return nil

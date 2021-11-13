@@ -1,11 +1,11 @@
-package storage
+package persistence
 
 import (
 	"database/sql"
 	"fmt"
 	"log"
 	"os"
-	"skiresorts/models"
+	"skiresorts/domain"
 	"time"
 
 	_ "github.com/lib/pq"
@@ -49,7 +49,7 @@ func NewPostgresRepo() *postgresRepo {
 	}
 }
 
-func (pr *postgresRepo) GetHill(id int) (*models.Hill, error) {
+func (pr *postgresRepo) GetHill(id int) (*domain.Hill, error) {
 	const query = `
 		select length, slope
 		from hills
@@ -70,7 +70,7 @@ func (pr *postgresRepo) GetHill(id int) (*models.Hill, error) {
 		if err != nil {
 			panic(err.Error()) // proper error handling instead of panic in your app
 		}
-		return &models.Hill{
+		return &domain.Hill{
 			Length: hill.Length,
 			Slope:  hill.Slope,
 		}, nil
@@ -78,7 +78,7 @@ func (pr *postgresRepo) GetHill(id int) (*models.Hill, error) {
 	return nil, fmt.Errorf("Hill with id %d is not found", id)
 }
 
-func (pr *postgresRepo) UpdateHill(id int, hill *models.Hill) error {
+func (pr *postgresRepo) UpdateHill(id int, hill *domain.Hill) error {
 	gormLogger := logger.New(log.New(os.Stdout, "\r\n", log.LstdFlags), logger.Config{
 		SlowThreshold:             200 * time.Millisecond,
 		LogLevel:                  logger.Warn,
