@@ -1,6 +1,7 @@
 build:
-	docker compose build
+	go build -o bin/main main.go
 
-run: build
-	docker-compose down --volumes
-	docker compose up -d --remove-orphans
+run:
+	go run main.go
+
+all: build
