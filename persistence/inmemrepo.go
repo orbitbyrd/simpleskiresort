@@ -12,8 +12,8 @@ type inMemDB struct {
 func newInMemDB() *inMemDB {
 	hills := map[int]*domain.Hill{
 		1: {
-			Length: 99.9,
-			Slope:  0.21,
+			Length: 89.8,
+			Slope:  0.29,
 		},
 	}
 	return &inMemDB{
