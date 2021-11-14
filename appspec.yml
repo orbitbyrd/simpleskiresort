@@ -11,6 +11,6 @@ permissions:
       - file
 hooks:
   ApplicationStart:
-   - location: as.sh
+   - location: /home/ec2-user/simpleskiresort/as.sh
      timeout: 300
      runas: root
