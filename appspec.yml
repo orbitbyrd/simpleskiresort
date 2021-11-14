@@ -12,6 +12,6 @@ permissions:
       - file
 hooks:
   ApplicationStart:
-   - location: applicationstart.sh
+   - location: as.sh
      timeout: 300
      runas: root
