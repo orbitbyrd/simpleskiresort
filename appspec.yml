@@ -6,7 +6,6 @@ files:
 permissions:
   - object: /home/ec2-user/simpleskiresort/
     pattern: "*.sh"
-    owner: ec2-user
     mode: 777
     type:
       - file
