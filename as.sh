@@ -1,4 +1,5 @@
 #!/bin/bash
-sudo go build -o /home/ec2-user/simpleskiresort/bin/main /home/ec2-user/simpleskiresort/main.go 
+cd /home/ec2-user/simpleskiresort/
+sudo go build -o bin/main main.go 
 chmod a+x /home/ec2-user/simpleskiresort/bin/main
 /home/ec2-user/simpleskiresort/bin/main
