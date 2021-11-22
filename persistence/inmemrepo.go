@@ -12,7 +12,7 @@ type inMemDB struct {
 func newInMemDB() *inMemDB {
 	hills := map[int]*domain.Hill{
 		1: {
-			Length: 97.1,
+			Length: 95.1,
 			Slope:  0.29,
 		},
 	}
