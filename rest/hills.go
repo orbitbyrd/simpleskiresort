@@ -2,7 +2,6 @@ package rest
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 	"skiresorts/domain"
 	"strconv"
@@ -35,7 +34,6 @@ func (h *handler) HandleHills(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
-	fmt.Printf("Hill is good : %d\n", id)
 	switch r.Method {
 	case "GET":
 		resp := h.getHill(id)
@@ -48,11 +46,9 @@ func (h *handler) HandleHills(w http.ResponseWriter, r *http.Request) {
 		var hill domain.Hill
 		err := json.NewDecoder(r.Body).Decode(&hill)
 		if err != nil {
-			fmt.Printf("Cannot Decode : %d\n", id)
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
-		fmt.Printf("Has decoded : %d\n", id)
 		resp := h.updateHill(id, &hill)
 		w.WriteHeader(resp.Status)
 		w.Write(resp.Body)
