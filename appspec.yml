@@ -10,7 +10,11 @@ permissions:
     type:
       - file
 hooks:
+  ApplicationStop:
+   - location: stop.sh
+     timeout: 300
+     runas: root
   ApplicationStart:
-   - location: as.sh
+   - location: start.sh
      timeout: 300
      runas: root
