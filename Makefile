@@ -1,7 +1,6 @@
 build:
-	go build -o bin/simpleskiresort main.go
+	docker compose build
 
-run:
-	go run main.go
-
-all: build
+run: build
+	docker compose down --volumes
+	docker compose up -d --remove-orphans
