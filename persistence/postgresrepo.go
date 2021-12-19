@@ -17,10 +17,13 @@ import (
 
 func newPostgresDB() *sql.DB {
 
-	dbHost, _ := creds.GetCred("db-host")
-	dbPort, _ := creds.GetCred("db-port")
-	dbName, _ := creds.GetCred("db-name")
-	dbUser, _ := creds.GetCred("db-user")
+	dbHost, err := creds.GetCred("db-host")
+	if err != nil {
+		log.Fatalf("Failed: %s\n", err.Error())
+	}
+	dbPort, err := creds.GetCred("db-port")
+	dbName, err := creds.GetCred("db-name")
+	dbUser, err := creds.GetCred("db-user")
 	dbPassword, _ := creds.GetCred("db-pw")
 
 	dbConnectionStr := fmt.Sprintf(

@@ -5,9 +5,3 @@ services:
          build: .
          ports: 
              - "9999:9999"
-         environment: 
-             PG_HOST: postgres
-             PG_PORT: 5432
-             PG_USER: postgres
-             PG_PASSWORD: testpwd
-             PG_DBNAME: postgres
