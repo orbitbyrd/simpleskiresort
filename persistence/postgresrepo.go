@@ -9,17 +9,19 @@ import (
 	"time"
 
 	_ "github.com/lib/pq"
+	"github.com/orbitbyrd/unicred-client/creds"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
 )
 
 func newPostgresDB() *sql.DB {
-	dbHost := os.Getenv("PG_HOST")
-	dbName := os.Getenv("PG_DBNAME")
-	dbPort := os.Getenv("PG_PORT")
-	dbUser := os.Getenv("PG_USER")
-	dbPassword := os.Getenv("PG_PASSWORD")
+
+	dbHost, _ := creds.GetCred("db-host")
+	dbPort, _ := creds.GetCred("db-port")
+	dbName, _ := creds.GetCred("db-name")
+	dbUser, _ := creds.GetCred("db-user")
+	dbPassword, _ := creds.GetCred("db-pw")
 
 	dbConnectionStr := fmt.Sprintf(
 		"host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
