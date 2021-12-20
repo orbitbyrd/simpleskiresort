@@ -125,8 +125,6 @@ github.com/olekukonko/tablewriter v0.0.5 h1:P2Ga83D34wi1o9J6Wh1mRuqd4mF/x/lgBS7N
 github.com/olekukonko/tablewriter v0.0.5/go.mod h1:hPp6KlRPjbx+hW8ykQs1w3UBbZlj6HuIJcUGPhkA7kY=
 github.com/onsi/ginkgo v1.6.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/gomega v1.5.0/go.mod h1:ex+gbHU/CVuBBDIJjb2X0qEXbFg53c61hWP/1CpauHY=
-github.com/orbitbyrd/unicred-client v1.0.1 h1:FuRfGl/mffsFTC+OvNKXVGvFPeAbj49bmrKvR/vLU5o=
-github.com/orbitbyrd/unicred-client v1.0.1/go.mod h1:rKuYN4BMwlxb6WMPaB5W4YftVv37zm6vZF/kFbiN0wg=
 github.com/orbitbyrd/unicred-client v1.0.2-0.20211219203725-5b6ef8a297ff h1:rowtlUCrJAIIuLsaV3D50sBCEvVJ1PQeRBWmq9Inl6k=
 github.com/orbitbyrd/unicred-client v1.0.2-0.20211219203725-5b6ef8a297ff/go.mod h1:rKuYN4BMwlxb6WMPaB5W4YftVv37zm6vZF/kFbiN0wg=
 github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
