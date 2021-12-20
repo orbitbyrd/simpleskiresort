@@ -20,6 +20,8 @@ func newPostgresDB() *sql.DB {
 	dbHost, err := creds.GetCred("db-host")
 	if err != nil {
 		log.Fatalf("Failed: %s\n", err.Error())
+	} else {
+		fmt.Printf("DB HOST = %s\n", dbHost)
 	}
 	dbPort, err := creds.GetCred("db-port")
 	dbName, err := creds.GetCred("db-name")
