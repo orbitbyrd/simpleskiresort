@@ -29,6 +29,7 @@ func Run(mode Mode) {
 
 	/*hill, err := hs.GetHill(1)
 	if err == nil {
+
 		fmt.Printf("Hills height = %f\n", hill.GetHeight())
 	}*/
 
