@@ -18,7 +18,7 @@ func newPostgresDB() *sql.DB {
 	dbHost := "ssr.cy1itf2b2igd.us-west-2.rds.amazonaws.com"
 	dbPort := "5432"
 	dbName := "ssr"
-	dbUser := "postgres"
+	dbUser := "ssruser"
 	dbPassword := "test1234"
 
 	dbConnectionStr := fmt.Sprintf(
