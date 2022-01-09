@@ -9,24 +9,17 @@ import (
 	"time"
 
 	_ "github.com/lib/pq"
-	"github.com/orbitbyrd/unicred-client/creds"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
 )
 
 func newPostgresDB() *sql.DB {
-
-	dbHost, err := creds.GetCred("db-host")
-	if err != nil {
-		log.Fatalf("Failed: %s\n", err.Error())
-	} else {
-		fmt.Printf("DB HOST = %s\n", dbHost)
-	}
-	dbPort, err := creds.GetCred("db-port")
-	dbName, err := creds.GetCred("db-name")
-	dbUser, err := creds.GetCred("db-user")
-	dbPassword, _ := creds.GetCred("db-pw")
+	dbHost := "ssr.cy1itf2b2igd.us-west-2.rds.amazonaws.com"
+	dbPort := "5432"
+	dbName := "ssr"
+	dbUser := "postgres"
+	dbPassword := "test1234"
 
 	dbConnectionStr := fmt.Sprintf(
 		"host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
@@ -36,6 +29,7 @@ func newPostgresDB() *sql.DB {
 		dbPassword,
 		dbName,
 	)
+
 	conn, err := sql.Open("postgres", dbConnectionStr)
 	if err != nil {
 		fmt.Printf("DB error = %s\n", err.Error())
