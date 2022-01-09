@@ -3,30 +3,42 @@ package persistence
 import (
 	"database/sql"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"os"
 	"skiresorts/domain"
 	"time"
 
 	_ "github.com/lib/pq"
+	"gopkg.in/yaml.v3"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
 )
 
 func newPostgresDB() *sql.DB {
-	dbHost := "ssr.cy1itf2b2igd.us-west-2.rds.amazonaws.com"
-	dbPort := "5432"
-	dbName := "ssr"
-	dbUser := "ssruser"
-	dbPassword := "test1234"
+	yfile, err := ioutil.ReadFile("../../ssrdb.yml")
+	if err != nil {
+		log.Fatal(err)
+	}
+	data := make(map[string]string)
+	err = yaml.Unmarshal(yfile, &data)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	dbHost := data["dbHost"]
+	dbPort := data["dbPort"]
+	dbName := data["dbName"]
+	dbUser := data["dbUser"]
+	dbPswd := data["dbPswd"]
 
 	dbConnectionStr := fmt.Sprintf(
 		"host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
 		dbHost,
 		dbPort,
 		dbUser,
-		dbPassword,
+		dbPswd,
 		dbName,
 	)
 
