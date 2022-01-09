@@ -2,9 +2,9 @@ version: 0.0
 os: linux
 files:
   - source: .
-    destination: '${SSR_HOME}'
+    destination: ${SSR_HOME}
 permissions:
-  - object: '${SSR_HOME}'
+  - object: ${SSR_HOME}
     pattern: "*.sh"
     mode: 777
     type:
