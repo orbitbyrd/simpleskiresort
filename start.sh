@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /home/ec2-user/simpleskiresort/
+cd ${SSR_HOME}
 sudo  make run 
-sudo chmod a+x /home/ec2-user/simpleskiresort/bin/simpleskiresort
-/home/ec2-user/simpleskiresort/bin/simpleskiresort > /dev/null 2> /dev/null < /dev/null &
+sudo chmod a+x ${SSR_HOME}/bin/simpleskiresort
+${SSR_HOME}/bin/simpleskiresort > /dev/null 2> /dev/null < /dev/null &

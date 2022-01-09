@@ -2,9 +2,9 @@ version: 0.0
 os: linux
 files:
   - source: .
-    destination: /home/ec2-user/simpleskiresort/
+    destination: '${SSR_HOME}'
 permissions:
-  - object: /home/ec2-user/simpleskiresort/
+  - object: '${SSR_HOME}'
     pattern: "*.sh"
     mode: 777
     type:

@@ -17,7 +17,8 @@ import (
 )
 
 func newPostgresDB() *sql.DB {
-	yfile, err := ioutil.ReadFile("../../ssrdb.yml")
+	ssrHome := os.Getenv("SSR_HOME")
+	yfile, err := ioutil.ReadFile(ssrHome + "/../ssrdb.yml")
 	if err != nil {
 		log.Fatal(err)
 	}
