@@ -33,6 +33,12 @@ func newPostgresDB() *sql.DB {
 	dbUser := data["dbUser"]
 	dbPswd := data["dbPswd"]
 
+	fmt.Printf("dbHost= %s\n", dbHost)
+	fmt.Printf("dbPort= %s\n", dbPort)
+	fmt.Printf("dbName= %s\n", dbName)
+	fmt.Printf("dbUser= %s\n", dbUser)
+	fmt.Printf("dbPswd= %s\n", dbPswd)
+
 	dbConnectionStr := fmt.Sprintf(
 		"host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
 		dbHost,
